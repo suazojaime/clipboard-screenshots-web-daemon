@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Paste Screenshot Upload</title>
+</head>
+<body>
+  <h2>Paste screenshot anywhere on this page</h2>
+  <p>Just press Ctrl/Cmd + V</p>
+
+  <!-- output only, no interaction -->
+  <pre id="markdown" style="margin-top:10px;"></pre>
+
+  <script>
+    document.addEventListener("paste", async (event) => {
+      const items = event.clipboardData?.items;
+      if (!items) return;
+
+      for (const item of items) {
+        if (item.type.startsWith("image/")) {
+          const blob = item.getAsFile();
+
+          const formData = new FormData();
+          formData.append("image", blob);
+
+          try {
+            const response = await fetch("/upload", {
+              method: "POST",
+              body: formData
+            });
+
+            const result = await response.json();
+
+            // ✅ Create markdown-ready line
+            const markdown = `![](${result.path})`;
+
+            console.log("Markdown:", markdown);
+
+            // show it (optional, passive)
+            document.getElementById("markdown").textContent = markdown;
+
+          } catch (err) {
+            console.error("Upload failed", err);
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
