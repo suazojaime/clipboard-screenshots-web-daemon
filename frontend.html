@@ -37,13 +37,13 @@
             // ✅ Create markdown-ready line
             const markdown = `![](${result.path})`;
 			
-			const markdown_withDetails = '<details><summary>Screenshot</summary> ' + markdown + ' </details>'
+			//const markdown_withDetails = '<details><summary>Screenshot</summary> ' + markdown + ' </details>'
 			
 
             console.log("Markdown:", markdown);
 
             // show it (optional, passive)
-            document.getElementById("markdown").textContent = markdown_withDetails;
+            document.getElementById("markdown").textContent = markdown;
 			
 			const preTag = markdown;
 			const img = document.getElementById('dynamicImage');
