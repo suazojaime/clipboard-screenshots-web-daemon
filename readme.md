@@ -61,7 +61,7 @@ Storage: Local filesystem
 .
 ├── server.js
 ├── frontend.html
-└── uploads/
+└── img/
     └── screenshot-<timestamp>.png
 ```
 
@@ -70,7 +70,7 @@ Storage: Local filesystem
 ## 1. Install dependencies
 
 ```bash
-npm install express multer
+npm install
 ```
 
 ## 2. Start the server
@@ -82,7 +82,8 @@ node server.js
 Server will run at:
 
 ```bash
-http://localhost:3000
+https://localhost:8443
+http://localhost:8080
 ```
 
 ## 3. Open the frontend
@@ -126,3 +127,4 @@ No authentication or sandboxing is implemented by design
 ✔ Stable
 ✔ Functional
 ✔ Intentionally minimal
+✔ SSL supported
