@@ -1,3 +1,4 @@
 node_modules/
-img/
 certificates/
+test/
+server.exe

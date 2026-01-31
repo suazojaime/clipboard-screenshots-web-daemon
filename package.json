@@ -1,6 +1,16 @@
 {
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "main": "server.js",
   "dependencies": {
     "express": "^5.2.1",
     "multer": "^2.0.2"
+  },
+  "pkg": {
+    "targets": ["node18-win-x64"],
+    "assets": [
+      "frontend.html",
+      "img/**/*"
+    ]
   }
 }

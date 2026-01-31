@@ -8,8 +8,9 @@ const http = require('http');
 const app = express();
 
 // 🔧 Define upload folder (predefined)
-const UPLOAD_DIR = path.join(__dirname, "img");
+//const UPLOAD_DIR = path.join(__dirname, "img");
 
+const UPLOAD_DIR = path.join(process.cwd(), 'img')
 // Ensure folder exists
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
@@ -46,8 +47,12 @@ app.post("/upload", upload.single("image"), (req, res) => {
   });
 });
 
-app.use(express.static("."));
+//app.use(express.static("."));
+app.use(express.static(path.join(__dirname)))
 app.use("/img", express.static(UPLOAD_DIR));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend.html'))
+})
 
 
 const httpsServer = https.createServer(credentials, app);

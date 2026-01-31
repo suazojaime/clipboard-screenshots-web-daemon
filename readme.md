@@ -6,6 +6,8 @@ A minimal web tool that lets you paste screenshots directly from your clipboard 
 > No buttons.
 > Just Ctrl/Cmd + V.
 
+![](img/screenshot-1769854535829.png)
+
 # ✨ Features
 
 Paste screenshots directly from the clipboard
@@ -17,6 +19,8 @@ Automatic file upload and naming
 Generates a ready-to-use Markdown image link
 
 Ideal for Markdown editors, wikis, and PKM workflows
+
+SSL supported for quick copy to clipboard
 
 # 🧠 How It Works
 
@@ -39,6 +43,8 @@ A Markdown image reference is produced:
 ```md
 ![](/uploads/screenshot-<timestamp>.png)
 ```
+
+and a button **Copy text** gives you the option to copy the mark-down ready string to the clipboard
 
 # 🛠 Tech Stack
 
